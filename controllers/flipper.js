@@ -1,7 +1,7 @@
 exports.flipper = function(req, res) {
 
   if (req.body.team_domain != process.env.TEAM_DOMAIN) {
-    res.status(401).send('Not from our team: ' + process.env.TEAM_DOMAIN );
+    res.status(401).send(req.body.team_domain + " " + process.env.TEAM_DOMAIN);
     return;
   }
 
