@@ -6,8 +6,8 @@ exports.digitizer = function(req, res) {
   }
 
   var digitialText = "";
+  
   //remove spaces to prevent double spacing, then digitize.
-
   if(req.body.text) {
     digitalText = req.body.text.split(" ").join("");
     digitalText = digitalText.split("").join(" ").toUpperCase();

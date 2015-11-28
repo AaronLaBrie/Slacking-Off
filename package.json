@@ -1,13 +1,12 @@
 {
   "name": "slacking-off",
   "version": "0.0.1",
-  "description": "",
+  "description": "Slack support server. Slash commands!",
   "main": "main.js",
   "scripts": {
     "start": "node main.js"
   },
-  "author": "",
-  "license": "ISC",
+  "private": true,
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3"
