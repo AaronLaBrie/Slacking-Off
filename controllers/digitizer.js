@@ -1,10 +1,10 @@
 exports.digitizer = function(req, res) {
 
   if (req.body.team_domain != process.env.TEAM_DOMAIN) {
-    res.status(401).send('Not from our team.');
+    res.status(401).send('Not from our team: ' + process.env.TEAM_DOMAIN);
     return;
   }
-  
+
   var digitialText = "";
   //remove spaces to prevent double spacing, then digitize.
 
