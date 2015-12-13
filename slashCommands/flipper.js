@@ -1,7 +1,7 @@
-exports.flipper = function(req, res) {
+ var flipper = function(req, res) {
 
   if (req.body.team_domain != process.env.TEAM_DOMAIN) {
-    res.status(401).send(req.body.team_domain + " " + process.env.TEAM_DOMAIN);
+    res.status(401).send(req.body.team_domain  + " is not the correct team");
     return;
   }
 
@@ -22,3 +22,5 @@ exports.flipper = function(req, res) {
 
   res.send(result);
 };
+
+module.exports = flipper;
