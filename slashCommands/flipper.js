@@ -1,6 +1,6 @@
  var flipper = function(req, res) {
 
-  if (req.body.team_domain != process.env.FLIPPER_TOKEN) {
+  if (req.body.token != process.env.FLIPPER_TOKEN) {
     res.status(401).send("Not from our team, sorry brah.");
     return;
   }
