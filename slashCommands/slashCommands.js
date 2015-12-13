@@ -2,7 +2,6 @@ var digitizer = require('./digitizer');
 var flipper = require('./flipper');
 var express = require('express');
 
-
 module.exports = (function() {
   var app = express.Router();
 
