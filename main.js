@@ -5,9 +5,8 @@ var challengeAPI = require('./challengeAPI');
 var slashCommands = require('./slashCommands');
 
 //DB stuff
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk(process.env.MONGOLAB_URI);
+var mongojs = require('mongojs')
+var db = mongojs(process.env.MONGOLAB_URI);
 
 var app = express();
 
@@ -29,5 +28,5 @@ app.use(function(req, res){
 var server = app.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
-  console.log("Server up!")
+  console.log("Server up! 🎉")
 });

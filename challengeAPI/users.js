@@ -1,8 +1,8 @@
 var users = function(req, res) {
   var db = req.db;
-  var collection = db.get('users');
-  collection.find({},{},function(e,docs){
-      res.json(docs);
+  req.db.collection('users').find().toArray(function(err, result) {
+    if (err) throw err;
+    res.send(result);
   });
 };
 
