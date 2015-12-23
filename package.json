@@ -9,6 +9,8 @@
   "private": true,
   "dependencies": {
     "body-parser": "^1.14.1",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mongodb": "^2.1.2",
+    "monk": "^1.0.1"
   }
 }
