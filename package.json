@@ -10,7 +10,7 @@
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "mongodb": "^2.1.2",
+    "mongodb": "^1.4.39",
     "monk": "^1.0.1"
   }
 }
