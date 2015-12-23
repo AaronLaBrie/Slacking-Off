@@ -3,7 +3,6 @@ var express = require('express');
 var bodyParser = require('body-parser')
 var challengeAPI = require('./challengeAPI');
 var slashCommands = require('./slashCommands');
-require('dotenv').load();
 
 //DB stuff
 var mongo = require('mongodb');
