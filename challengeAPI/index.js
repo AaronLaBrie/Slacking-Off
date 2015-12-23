@@ -5,7 +5,7 @@ var express = require('express');
 module.exports = (function() {
   var app = express.Router();
 
-  app.get('/users', users);
+  app.get('/users', users.getUsers);
 
   return app;
 })();

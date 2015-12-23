@@ -5,8 +5,8 @@ var challengeAPI = require('./challengeAPI');
 var slashCommands = require('./slashCommands');
 
 //DB stuff
-var mongojs = require('mongojs')
-var db = mongojs(process.env.MONGOLAB_URI);
+var monk = require('monk')
+var db = monk(process.env.MONGOLAB_URI);
 
 var app = express();
 
