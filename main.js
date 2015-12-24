@@ -2,6 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var challengeAPI = require('./challengeAPI');
+var challengeBot = require('./challengeBot');
 var slashCommands = require('./slashCommands');
 
 //DB stuff
@@ -12,6 +13,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 3000));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(function(req,res,next){
     req.db = db;
     next();
