@@ -9,7 +9,7 @@ module.exports = (function() {
   });
 
   controller.spawn({
-    token: process.env.CHALENGEBOT_TOKEN,
+    token: process.env.CHALLENGEBOT_TOKEN,
   }).startRTM()
 
   controller.hears('hello','direct_message,direct_mention,mention',function(bot,message) {
