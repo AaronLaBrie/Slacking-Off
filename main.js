@@ -19,6 +19,7 @@ app.use(function(req,res,next){
     next();
 });
 
+app.use(challengeBot);
 app.use('/challengeAPI', challengeAPI);
 app.use('/commands', slashCommands);
 
