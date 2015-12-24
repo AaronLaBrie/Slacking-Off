@@ -5,7 +5,7 @@ module.exports = (function() {
   var app = express.Router();
 
   var controller = Botkit.slackbot({
-    debug: false
+    debug: true
   });
 
   controller.spawn({
