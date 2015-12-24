@@ -13,7 +13,6 @@ module.exports = (function() {
   }).startRTM()
 
   controller.hears('hello','direct_message,direct_mention,mention',function(bot,message) {
-    console.log(bot);
     console.log(message);
     bot.reply(message,'Hello yourself.');
   });
