@@ -11,6 +11,7 @@
     "body-parser": "^1.14.1",
     "botkit": "0.0.4",
     "express": "^4.13.3",
+    "mongodb": "^2.1.2",
     "monk": "^1.0.1"
   }
 }
