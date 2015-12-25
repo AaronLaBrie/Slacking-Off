@@ -18,8 +18,9 @@ module.exports = (function() {
 
   controller.hears('challenge', 'direct_mention,mention', function(bot, message) {
     var params = message.text.split(" ");
+    console.log(params)
     if(params[0].charAt != '@') {
-      bot.reply(message, "I don't understand :dissapointed:");
+      bot.reply(message, "I don't understand :disappointed:");
     } else {
       var target = params.shift();
       var challenge = params.join(" ");
