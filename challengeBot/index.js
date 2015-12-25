@@ -13,8 +13,11 @@ module.exports = (function() {
   }).startRTM()
 
   controller.hears('hello','direct_message,direct_mention,mention',function(bot,message) {
-    console.log(message);
     bot.reply(message,'Hello yourself.');
+  });
+
+  controller.hears('challenge','mention',function(bot,message) {
+    bot.reply(message,'A challenge!: ' + message.text);
   });
 
   return app;
