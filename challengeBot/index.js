@@ -16,7 +16,7 @@ module.exports = (function() {
     bot.reply(message,'Hello yourself.');
   });
 
-  controller.hears('challenge','mention',function(bot,message) {
+  controller.hears('challenge','direct_mention,mention',function(bot,message) {
     bot.reply(message,'A challenge!: ' + message.text);
   });
 
