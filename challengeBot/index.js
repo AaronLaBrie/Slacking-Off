@@ -54,10 +54,13 @@ module.exports = (function() {
 
   //User test
   controller.hears('users', 'direct_mention,mention', function(bot, message) {
+    console.log('here')
     db.get('users').find({}, function (err, docs){
+      console.log('made it')
       if(err) { res.status(500).send(err) }
       bot.reply(message, docs);
     });
+    console.log('there')
   });
 
   return app;
