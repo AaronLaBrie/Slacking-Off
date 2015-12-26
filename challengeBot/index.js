@@ -53,7 +53,7 @@ module.exports = (function() {
   });
 
   //User test
-  controller.hears('challenge', 'direct_mention,mention', function(bot, message) {
+  controller.hears('users', 'direct_mention,mention', function(bot, message) {
     db.get('users').find({}, function (err, docs){
       if(err) { res.status(500).send(err) }
       bot.reply(message, docs);
