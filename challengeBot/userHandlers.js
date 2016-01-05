@@ -15,7 +15,7 @@ var userHandlers = {
           //rename id so mongo isn't dumb
           data.user["slackId"] = data.user["id"];
           delete data.user["id"];
-          db.get('users').insert(user, function (err, doc) {
+          db.get('users').insert(data.user, function (err, doc) {
             if(err) { return bot.reply(message, errorText); }
             return bot.reply(message, "Alright dude, you're in the game!");
           });
