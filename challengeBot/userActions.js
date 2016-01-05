@@ -5,7 +5,7 @@ var errorText = "Something broke :cry:";
 var userActions = {
 
   //Add a new user to the game! Make sure they're not already playing first.
-  addUser: function(bot, message) {
+  newUser: function(bot, message) {
     bot.api.users.info({user: message.user}, function(err, data) {
       if(err) { return bot.reply(message, errorText); }
       db.get('users').find({slackId: message.user}, function (err, docs){

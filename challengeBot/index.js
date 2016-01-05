@@ -1,6 +1,7 @@
 var Botkit = require('botkit');
 var express = require('express');
 var userActions = require('./userActions');
+var challengeActions = require('./challengeActions');
 
 module.exports = (function() {
   var app = express.Router();
@@ -20,28 +21,13 @@ module.exports = (function() {
   });
 
   //Add User
-  controller.hears('add me', 'direct_mention,mention', userActions.addUser);
+  controller.hears('add me', 'direct_mention,mention', userActions.newUser);
 
   //Get users
   controller.hears('list players', 'direct_mention,mention', userActions.listUsers);
 
   //Issue Challenge
-  controller.hears('challenge', 'direct_mention,mention', function(bot, message) {
-    var params = message.text.split(" ");
-
-    //Check for a target
-    if(params[1].slice(0,2) != '<@') {
-      bot.reply(message, "I don't understand :disappointed:");
-    } else {
-      //shift off the word 'challenge', then get the target
-      params.shift();
-      var target = params.shift();
-
-      //the rest should be the challenge.
-      var challenge = params.join(" ");
-      bot.reply(message, target + ", you have been challenged: " + challenge);
-    }
-  });
+  controller.hears('challenge', 'direct_mention,mention', challengeActions.newChallenge);
 
   return app;
 })();
