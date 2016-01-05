@@ -34,7 +34,7 @@ var userActions = {
         return bot.reply(message, "Only " + docs[0].name + "is playing.");
       } else {
         var players = "";
-        docs.forEach(user, index {
+        docs.forEach(function(user, index) {
           players += ", " + user.name;
         });
         return bot.reply(message "These homies are all players: " + players + ".");
