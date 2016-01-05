@@ -4,7 +4,7 @@ var errorText = "Something broke :cry:";
 
 var challengeActions = {
 
-  //Issue challenge!
+  //Issue challenge - the biggun
   newChallenge: function(bot, message) {
     db.get('users').findOne({slackId: message.user}, function (err, doc){
       if(!doc) {

@@ -4,7 +4,7 @@ var errorText = "Something broke :cry:";
 
 var userActions = {
 
-  //Add a new user to the game! Make sure they're not already playing first.
+  //Add a new user to the game!  - the biggun
   newUser: function(bot, message) {
     bot.api.users.info({user: message.user}, function(err, data) {
       if(err) { return bot.reply(message, errorText); }
@@ -31,11 +31,11 @@ var userActions = {
       if(docs.length == 0) {
         return bot.reply(message, "Nobody is playing :crying_cat_face:");
       } else if (docs.length == 1) {
-        return bot.reply(message, "Only " + docs[0].name + "is playing.");
+        return bot.reply(message, "Only <@" + docs[0].slackId + "> is playing.");
       } else {
-        var players = docs.shift().name;
+        var players = "<@" + docs.shift().slackId + ">";
         docs.forEach(function(user, index) {
-          players += ", " + user.name;
+          players += ", <@" + user.slackId + ">";
         });
         return bot.reply(message, "These homies are all players: " + players + ".");
       }
