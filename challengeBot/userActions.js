@@ -5,7 +5,7 @@ var errorText = "Something broke :cry:";
 var userActions = {
 
   //Add a new user to the game!  - the biggun
-  newUser: function(bot, message) {
+  new: function(bot, message) {
     bot.api.users.info({user: message.user}, function(err, data) {
       if(err) { return bot.reply(message, errorText); }
       db.get('users').find({slackId: message.user}, function (err, docs){
@@ -26,8 +26,9 @@ var userActions = {
   },
 
   //List all users
-  listUsers: function(bot, message) {
+  list: function(bot, message) {
     db.get('users').find({}, function (err, docs){
+      if(err) { return bot.reply(message, errorText); }
       if(docs.length == 0) {
         return bot.reply(message, "Nobody is playing :crying_cat_face:");
       } else if (docs.length == 1) {
