@@ -35,7 +35,7 @@ var userActions = {
       } else if (docs.length == 1) {
         return bot.reply(message, "Only " + docs[0].name + "is playing.");
       } else {
-        var players = "";
+        var players = docs.shift().name;
         docs.forEach(function(user, index) {
           players += ", " + user.name;
         });
