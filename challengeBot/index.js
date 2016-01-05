@@ -56,7 +56,8 @@ module.exports = (function() {
   controller.hears('users', 'direct_mention,mention', function(bot, message) {
     db.get('users').find({}, function (err, docs){
       if(err) { res.status(500).send(err) }
-      bot.reply(message, docs[0].name );
+      console.log(docs, typeof docs)
+      bot.reply(message, "hold on");
     });
   });
 
