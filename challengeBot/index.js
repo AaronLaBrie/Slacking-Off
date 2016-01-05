@@ -1,6 +1,6 @@
 var Botkit = require('botkit');
 var express = require('express');
-var userHandlers = require('./userHandlers');
+var userActions = require('./userActions');
 
 module.exports = (function() {
   var app = express.Router();
@@ -20,7 +20,10 @@ module.exports = (function() {
   });
 
   //Add User
-  controller.hears('add me', 'direct_mention,mention', userHandlers.addUser);
+  controller.hears('add me', 'direct_mention,mention', userActions.addUser);
+
+  //Get users
+  controll.hears('users', 'direct_message,mention', userActions.listUsers);
 
   //Issue Challenge
   controller.hears('challenge', 'direct_mention,mention', function(bot, message) {
