@@ -8,12 +8,12 @@ var userHandlers = {
   addUser: function(bot, message) {
     bot.api.users.info({user: message.user}, function(err, data) {
       if(err) { return bot.reply(message, errorText); }
-      db.get('users').findById(message.user, function (err, doc){
+      db.get('users').find({slackId: message.user}, function (err, doc){
         if(doc) {
           return bot.reply(message, "You're already playing :face_with_rolling_eyes:");
         } else {
           //rename id so mongo isn't dumb
-          data.user["id"] = data.user["_id"];
+          data.user["slackId"] = data.user["id"];
           delete data.user["id"];
           db.get('users').insert(user, function (err, doc) {
             if(err) { return bot.reply(message, errorText); }
