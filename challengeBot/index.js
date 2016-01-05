@@ -21,10 +21,10 @@ module.exports = (function() {
 
   //Help me Challengebot!
   controller.hears('help', 'direct_message,direct_mention,mention', function(bot, message) {
-    var help_text = "'add me' to add yourself to the game.\n";
-    help_text += "'list players' to see who all is playing.\n";
-    help_text += "'challenge @person _do this thing_' to challenge that person to do that thing.\n";
-    help_text += "'active challenges' to list all the challenges you have to do.";
+    var help_text = "`add me` to add yourself to the game.\n";
+    help_text += "`list players` to see who all is playing.\n";
+    help_text += "`challenge @person _do this thing_` to challenge that person to do that thing.\n";
+    help_text += "`active challenges` to list all the challenges you have to do.";
     bot.reply(message, help_text);
   });
 
@@ -33,12 +33,12 @@ module.exports = (function() {
 
   //Get users
   controller.hears('list players', 'direct_mention,mention', userActions.list);
+  
+  //Current challenges
+  controller.hears('active challenges', 'direct_mention,mention', challengeActions.listActive);
 
   //Issue Challenge
   controller.hears('challenge', 'direct_mention,mention', challengeActions.new);
-
-  //Current challenges
-  controller.hears('active challenges', 'direct_mention,mention', challengeActions.listActive);
 
   return app;
 })();
