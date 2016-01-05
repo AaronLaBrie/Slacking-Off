@@ -41,8 +41,7 @@ var challengeActions = {
         }
       }
     });
-  }
-
+  },
 
   //Get active challenges
   listActive: function(bot, message) {
@@ -61,6 +60,7 @@ var challengeActions = {
       bot.reply(message, challenges);
     });
   }
+  
 }
 
 module.exports = challengeActions;
