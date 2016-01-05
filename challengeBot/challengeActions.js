@@ -6,8 +6,9 @@ var challengeActions = {
 
   //Issue challenge!
   newChallenge: function(bot, message) {
-    db.get('users').find({name: message.user}, function (err, doc){
-      if(!doc) {
+    console.log(message)
+    db.get('users').find({slackId: message.user}, function (err, doc){
+      if(!doc.slackId) {
         return bot.reply(message, "You're not playing yet, dawg :dog:");
       } else if (doc.tokens <= 0) {
         return bot.reply(message, "You don't have any tokens, get someone to challenge you.");
