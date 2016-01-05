@@ -54,6 +54,7 @@ module.exports = (function() {
 
   //User test
   controller.hears('users', 'direct_mention,mention', function(bot, message) {
+    console.log(message);
     db.get('users').find({}, function (err, docs){
       if(err) { res.status(500).send(err) }
       var aaron = docs[0].Name
