@@ -27,9 +27,7 @@ var userActions = {
 
   //List all users
   listUsers: function(bot, message) {
-    console.log('here')
     db.get('users').find({}, function (err, docs){
-      console.log(docs)
       if(docs.length == 0) {
         return bot.reply(message, "Nobody is playing :crying_cat_face:");
       } else if (docs.length == 1) {

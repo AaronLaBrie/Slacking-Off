@@ -23,7 +23,7 @@ module.exports = (function() {
   controller.hears('add me', 'direct_mention,mention', userActions.addUser);
 
   //Get users
-  controller.hears('users', 'direct_mention,mention', userActions.listUsers);
+  controller.hears('list players', 'direct_mention,mention', userActions.listUsers);
 
   //Issue Challenge
   controller.hears('challenge', 'direct_mention,mention', function(bot, message) {
