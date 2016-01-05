@@ -29,7 +29,8 @@ var challengeActions = {
             to: targetId,
             from: doc.slackId,
             text: challengeText,
-            created: new Date()
+            created: new Date(),
+            completed: false
           }
 
           db.get('challenges').insert(challenge, function(err, doc) {
