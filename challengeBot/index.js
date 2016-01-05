@@ -1,11 +1,10 @@
 var Botkit = require('botkit');
 var express = require('express');
-var monk = require('monk');
+var userHandlers = require('./userHandlers');
 
 module.exports = (function() {
   var app = express.Router();
   var errorText = "Something broke :cry:";
-  var db = monk(process.env.MONGOLAB_URI);
 
   var controller = Botkit.slackbot({
     debug: false
@@ -21,18 +20,7 @@ module.exports = (function() {
   });
 
   //Add User
-  controller.hears('add me', 'direct_mention,mention', function(bot, message) {
-    //Make sure they aren't already in the game
-    db.get('users').findById(req.params.id, function (err, doc) {
-      if(err) { return bot.reply(message, errorText); }
-      if(doc) { return bot.reply(message, "You're already playing :face_with_rolling_eyes:"); }
-      //Add them.
-      req.db.get('users').insert({}, function (err, doc) {
-        if(err) {  return bot.reply(message, errorText); }
-        bot.reply(mesage, "Added! :tada:");
-      });
-    });
-  });
+  controller.hears('add me', 'direct_mention,mention', userHandlers.addUser);
 
   //Issue Challenge
   controller.hears('challenge', 'direct_mention,mention', function(bot, message) {
@@ -50,16 +38,6 @@ module.exports = (function() {
       var challenge = params.join(" ");
       bot.reply(message, target + ", you have been challenged: " + challenge);
     }
-  });
-
-  //User test
-  controller.hears('users', 'direct_mention,mention', function(bot, message) {
-    console.log(message);
-    db.get('users').find({}, function (err, docs){
-      if(err) { res.status(500).send(err) }
-      var aaron = docs[0].Name
-      bot.reply(message, aaron);
-    });
   });
 
   return app;
