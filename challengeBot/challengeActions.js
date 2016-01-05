@@ -45,10 +45,10 @@ var challengeActions = {
 
   //Get active challenges
   listActive: function(bot, message) {
-    db.get('challenges').find({to: message.user, completed: false}, {sort: {created: -1}}, function (err, docs){
+    db.get('challenges').find({to: message.user, completed: false}, {sort: {created: 1}}, function (err, docs){
       if(err) { return bot.reply(message, errorText); }
       if(!docs || docs.length == 0) {
-        return bot.reply(message, "You have no active challenges :sadface:");
+        return bot.reply(message, "You have no active challenges :crying_cat_face:");
       }
 
       var first = docs.shift();
@@ -60,7 +60,7 @@ var challengeActions = {
       bot.reply(message, challenges);
     });
   }
-  
+
 }
 
 module.exports = challengeActions;
