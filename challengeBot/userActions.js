@@ -15,6 +15,7 @@ var userActions = {
           //rename id so mongo isn't dumb
           data.user["slackId"] = data.user["id"];
           delete data.user["id"];
+          data.user.tokens = 2;
           db.get('users').insert(data.user, function (err, doc) {
             if(err) { return bot.reply(message, errorText); }
             return bot.reply(message, "Alright dude, you're in the game!");
@@ -32,7 +33,7 @@ var userActions = {
       } else if (docs.length == 1) {
         return bot.reply(message, "Only " + docs[0].name + "is playing.");
       } else {
-        var players == "";
+        var players = "";
         docs.forEach(user, index {
           players += ", " + user.name;
         });
