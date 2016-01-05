@@ -37,7 +37,7 @@ var userActions = {
         docs.forEach(function(user, index) {
           players += ", " + user.name;
         });
-        return bot.reply(message "These homies are all players: " + players + ".");
+        return bot.reply(message, "These homies are all players: " + players + ".");
       }
     });
   }
