@@ -23,7 +23,7 @@ var challengeActions = {
           params.shift();
           var targetId = params.shift().slice(2, -1);
           var challengeText = params.join(" ");
-
+          console.log(doc)
           if(targetId == doc.slackId) { return bot.reply(message, "You can't challenge yourself :poop:"); }
 
           var challenge = {
