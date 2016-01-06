@@ -28,8 +28,9 @@ var challengeActions = {
 
           //Now we make sure that the target doesn't already have a challenge from the sender.
           db.get('challenges').findOne({to: targetId, from: message.user, completed: false}, function(err, doc){
+            console.log(doc)
             if(err) { return bot.reply(message, errorText); }
-            if(doc != []) { return bot.reply(message, "You already have a challenge to <@" + targetId + ">: " + doc.text); }
+            if(doc && doc != []) { return bot.reply(message, "You already have a challenge to <@" + targetId + ">: " + doc.text); }
 
             var challenge = {
               to: targetId,
