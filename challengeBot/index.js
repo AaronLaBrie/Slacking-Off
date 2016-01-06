@@ -29,16 +29,16 @@ module.exports = (function() {
   });
 
   //Add User
-  controller.hears('add me', 'direct_mention,mention', userActions.new);
+  controller.hears('add me', 'direct_mention', userActions.new);
 
   //Get users
-  controller.hears('list players', 'direct_mention,mention', userActions.list);
-  
+  controller.hears('list players', 'direct_mention', userActions.list);
+
   //Current challenges
-  controller.hears('active challenges', 'direct_mention,mention', challengeActions.listActive);
+  controller.hears('active challenges', 'direct_mention', challengeActions.listActive);
 
   //Issue Challenge
-  controller.hears('challenge', 'direct_mention,mention', challengeActions.new);
+  controller.hears('challenge', 'direct_mention', challengeActions.new);
 
   return app;
 })();

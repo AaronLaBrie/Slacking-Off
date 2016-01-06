@@ -26,17 +26,22 @@ var challengeActions = {
           var challengeText = params.join(" ");
           if(targetId == doc.slackId) { return bot.reply(message, "You can't challenge yourself :poop:"); }
 
-          var challenge = {
-            to: targetId,
-            from: doc.slackId,
-            text: challengeText,
-            created: new Date(),
-            completed: false
-          }
-
-          db.get('challenges').insert(challenge, function(err, doc) {
+          db.get('challenges').find({to: targetId, from: message.user, completed: false}, function(err, doc){
+            console.log(doc)
             if(err) { return bot.reply(message, errorText); }
-            bot.reply(message, "<@" + targetId + ">, you have been challenged: " + challengeText) + " :tada:";
+            if(doc == []) { bot.reply(message, "You already have a challenge to @<" + targetId + ">: " + doc.text); }
+            var challenge = {
+              to: targetId,
+              from: doc.slackId,
+              text: challengeText,
+              created: new Date(),
+              completed: false
+            }
+
+            db.get('challenges').insert(challenge, function(err, doc) {
+              if(err) { return bot.reply(message, errorText); }
+              bot.reply(message, "<@" + targetId + ">, you have been challenged: " + challengeText) + " :tada:";
+            });
           });
         }
       }
