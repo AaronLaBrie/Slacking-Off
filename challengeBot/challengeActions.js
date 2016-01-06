@@ -29,7 +29,7 @@ var challengeActions = {
           db.get('challenges').find({to: targetId, from: message.user, completed: false}, function(err, doc){
             console.log(doc)
             if(err) { return bot.reply(message, errorText); }
-            if(doc == []) { bot.reply(message, "You already have a challenge to @<" + targetId + ">: " + doc.text); }
+            if(doc != []) { bot.reply(message, "You already have a challenge to @<" + targetId + ">: " + doc.text); }
             var challenge = {
               to: targetId,
               from: doc.slackId,
