@@ -30,7 +30,8 @@ var challengeActions = {
           db.get('challenges').find({to: targetId, from: message.user, completed: false}, function(err, challenge) {
             if(err) { return bot.reply(message, errorText); }
             if(Array.isArray(challenge) && challenge.length > 0) {
-              return bot.reply(message, "You already have a challenge to <@" + targetId + ">: " + challenge.text);
+              console.log(challenge)
+              return bot.reply(message, "You already have a challenge to <@" + targetId + ">: " + challenge[0].text);
             }
 
             var challenge = {
