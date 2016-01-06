@@ -11,7 +11,7 @@ var challengeActions = {
       if(!fromUser) {
         return bot.reply(message, "You're not playing yet, dawg :dog:");
       } else if (fromUser.tokens <= 0) {
-        return bot.reply(message, "You don't have any tokens, get someone to challenge you.");
+        return bot.reply(message, "You don't have enough tokens, get someone to challenge you.");
       } else {
         var params = message.text.split(" ");
 
@@ -30,8 +30,7 @@ var challengeActions = {
           db.get('challenges').find({to: targetId, from: message.user, completed: false}, function(err, challenge) {
             if(err) { return bot.reply(message, errorText); }
             if(Array.isArray(challenge) && challenge.length > 0) {
-              console.log(challenge)
-              return bot.reply(message, "You already have a challenge to <@" + targetId + ">: " + challenge[0].text);
+              return bot.reply(message, "You already have a challenge for <@" + targetId + ">: " + challenge[0].text);
             }
 
             var challenge = {
