@@ -6,11 +6,11 @@ var challengeActions = {
 
   //Issue challenge - the biggun
   new: function(bot, message) {
-    db.get('users').findOne({slackId: message.user}, function (err, doc){
+    db.get('users').findOne({slackId: message.user}, function (err, fromUser){
       if(err) { return bot.reply(message, errorText); }
-      if(!doc) {
+      if(!fromUser) {
         return bot.reply(message, "You're not playing yet, dawg :dog:");
-      } else if (doc.tokens <= 0) {
+      } else if (fromUser.tokens <= 0) {
         return bot.reply(message, "You don't have any tokens, get someone to challenge you.");
       } else {
         var params = message.text.split(" ");
@@ -24,24 +24,23 @@ var challengeActions = {
           params.shift();
           var targetId = params.shift().slice(2, -1);
           var challengeText = params.join(" ");
-          if(targetId == doc.slackId) { return bot.reply(message, "You can't challenge yourself :poop:"); }
+          if(targetId == fromUser.slackId) { return bot.reply(message, "You can't challenge yourself :poop:"); }
 
           //Now we make sure that the target doesn't already have a challenge from the sender.
-          db.get('challenges').findOne({to: targetId, from: message.user, completed: false}, function(err, doc){
-            console.log(doc)
+          db.get('challenges').find({to: targetId, from: message.user, completed: false}, function(err, challenge) {
             if(err) { return bot.reply(message, errorText); }
-            if(doc && doc != []) { return bot.reply(message, "You already have a challenge to <@" + targetId + ">: " + doc.text); }
+            if(challenge && challenge != []) { return bot.reply(message, "You already have a challenge to <@" + targetId + ">: " + challenge.text); }
 
             var challenge = {
               to: targetId,
-              from: doc.slackId,
+              from: fromUser.slackId,
               text: challengeText,
               created: new Date(),
               completed: false
             }
 
             //Okay! Add the challenge
-            db.get('challenges').insert(challenge, function(err, doc) {
+            db.get('challenges').insert(challenge, function(err) {
               if(err) { return bot.reply(message, errorText); }
               bot.reply(message, "<@" + targetId + ">, you have been challenged: " + challengeText) + " :tada:";
             });
