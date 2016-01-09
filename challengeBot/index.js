@@ -24,7 +24,8 @@ module.exports = (function() {
     var help_text = "`add me` to add yourself to the game.\n";
     help_text += "`list players` to see who all is playing.\n";
     help_text += "`challenge @person do this thing` to challenge that person to do that thing.\n";
-    help_text += "`active challenges` to list all the challenges you have to do.";
+    help_text += "`active challenges` to list all the challenges you have to do.\n";
+    help_text += "`complete challenge from @person` to comeplete their challenge.";
     bot.reply(message, help_text);
   });
 
