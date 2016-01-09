@@ -68,8 +68,10 @@ var challengeActions = {
       }
 
       var targetId = params[3].slice(2, -1);
-      db.get('challenges').findOne({from: messageSender.slackId, to: targetId, active: true}, function(err, challenge) {
+      console.log(targetId)
+      db.get('challenges').findOne({to: messageSender.slackId, from: targetId, active: true}, function(err, challenge) {
         if(err) { return bot.reply(message, errorText); }
+        console.log(challenge)
         if(!challenge || !challenge.text) {
           return bot.reply(message, "You do not have a challenge from <@" + targetId + "> right now. ");
         }
