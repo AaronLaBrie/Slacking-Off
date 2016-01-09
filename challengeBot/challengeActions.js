@@ -69,7 +69,7 @@ var challengeActions = {
 
       var targetId = params[3].slice(2, -1);
       console.log(targetId)
-      db.get('challenges').findOne({to: messageSender.slackId, from: targetId, completed: true}, function(err, challenge) {
+      db.get('challenges').findOne({to: messageSender.slackId, from: targetId, completed: false}, function(err, challenge) {
         if(err) { return bot.reply(message, errorText); }
         console.log(challenge)
         if(!challenge || !challenge.text) {
