@@ -37,6 +37,9 @@ module.exports = (function() {
   //Current challenges
   controller.hears('active challenges', 'direct_mention', challengeActions.listActive);
 
+  //Complete challenge
+  controller.hears('complete challenge from', 'direct_mention', challengeActions.complete);
+
   //Issue Challenge
   controller.hears('challenge', 'direct_mention', challengeActions.new);
 
