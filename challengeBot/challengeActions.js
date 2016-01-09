@@ -68,14 +68,15 @@ var challengeActions = {
       }
 
       var targetId = params[3].slice(2, -1);
-      console.log(targetId)
       db.get('challenges').findOne({to: messageSender.slackId, from: targetId, completed: false}, function(err, challenge) {
         if(err) { return bot.reply(message, errorText); }
-        console.log(challenge)
         if(!challenge || !challenge.text) {
           return bot.reply(message, "You do not have a challenge from <@" + targetId + "> right now. ");
         }
-        db.get('challenges').updateById(challenge['_id'], {completed: true, completedOn: new Date()}, function(err) {
+        //Actually complete!
+        challenge.completedOn = new Date();
+        challenge.completed = true;
+        db.get('challenges').updateById(challenge['_id'], challenge, function(err) {
           return bot.reply(message, "Challenge Complete! :party-parrot:")
           db.get('users').updateById(messageSender.slackId, {tokens: messageSender.tokens+1}, function(err, doc) {
             return bot.reply(message, "<@" + doc.slackId + "> you now have " + doc.tokens + " tokens :tada:" )
