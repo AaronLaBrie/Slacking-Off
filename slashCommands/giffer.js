@@ -9,9 +9,9 @@ var giffer = function(req, res) {
   var giff = "༼ つ ◕_◕ ༽つ giff ";
 
   if(req.body.text) {
-    giffText = giff + "diretide";
-  } else {
     giffText = giff + req.body.text;
+  } else {
+    giffText = giff + "diretide";
   }
 
   var result = {
