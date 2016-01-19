@@ -5,18 +5,11 @@ var giffer = function(req, res) {
     return;
   }
 
-  var giffText = "";
-  var giff = "༼ つ ◕_◕ ༽つ giff ";
-
-  if(req.body.text) {
-    giffText = giff + req.body.text;
-  } else {
-    giffText = giff + "diretide";
-  }
+  var text = req.body.text ? req.body.text : "diretide";
 
   var result = {
     response_type: "in_channel",
-    text: giffText,
+    text: "༼ つ ◕_◕ ༽つ giff " + text,
   };
 
   res.send(result);
