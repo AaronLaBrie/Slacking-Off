@@ -5,15 +5,7 @@
     return;
   }
 
-  var responseText = "";
-
-  switch (req.body.text) {
-    case "replace":
-      responseText = "┬─┬ノ( º _ ºノ)";
-      break;
-    default:
-      responseText = "(╯°□°)╯︵ ┻━┻";
-  }
+  var responseText = (req.body.text == "replace") ? "┬─┬ノ( º _ ºノ)" : "(╯°□°)╯︵ ┻━┻";
 
   var result = {
     response_type: "in_channel",

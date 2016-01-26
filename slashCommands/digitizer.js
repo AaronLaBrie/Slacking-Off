@@ -5,13 +5,11 @@ var digitizer = function(req, res) {
     return;
   }
 
-  var digitialText = "";
+  var digitialText = req.body.text ? req.body.text : "digital sports";
 
   //remove spaces to prevent double spacing, then digitize.
-  if(req.body.text) {
-    digitalText = req.body.text.split(" ").join("");
-    digitalText = digitalText.split("").join(" ").toUpperCase();
-  }
+  digitalText = digitialText.split(" ").join("");
+  digitalText = digitalText.split("").join(" ").toUpperCase();
 
   var result = {
     response_type: "in_channel",
