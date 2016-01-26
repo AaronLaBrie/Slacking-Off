@@ -1,7 +1,6 @@
 //Deps
 var express = require('express');
 var bodyParser = require('body-parser')
-var challengeAPI = require('./challengeAPI');
 var challengeBot = require('./challengeBot');
 var slashCommands = require('./slashCommands');
 
@@ -20,7 +19,6 @@ app.use(function(req,res,next){
 });
 
 app.use(challengeBot);
-app.use('/challengeAPI', challengeAPI);
 app.use('/commands', slashCommands);
 
 //404 if nothing else got hit.
