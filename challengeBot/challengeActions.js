@@ -46,9 +46,9 @@ var challengeActions = {
           //Okay! Add the challenge
           db.get('challenges').insert(challenge, function(err) {
             if(err) { return bot.reply(message, errorText); }
-            bot.reply(message, "<@" + targetId + ">, you have been challenged: " + challengeText) + " :tada:";
             db.get('challenges').updateById(messageSender.slackId, {tokens: messageSender.tokens-1}, function(err, doc) {
-              return bot.reply(message, "<@" + doc.slackId + "> you now have " + doc.tokens + " tokens." )
+              if(err) { return bot.reply(message, errorText); }
+              return bot.reply(message, "<@" + targetId + ">, you have been challenged: " + challengeText) + " :tada: \n<@" + doc.slackId + "> you now have " + doc.tokens + " tokens." )
             });
           });
         });
@@ -77,9 +77,10 @@ var challengeActions = {
         challenge.completedOn = new Date();
         challenge.completed = true;
         db.get('challenges').updateById(challenge['_id'], challenge, function(err) {
-          return bot.reply(message, "Challenge Complete! :party-parrot:")
+          if(err) { return bot.reply(message, errorText); }
           db.get('users').updateById(messageSender.slackId, {tokens: messageSender.tokens+1}, function(err, doc) {
-            return bot.reply(message, "<@" + doc.slackId + "> you now have " + doc.tokens + " tokens :tada:" )
+            if(err) { return bot.reply(message, errorText); }
+            return bot.reply(message, "Challenge Complete! :party-parrot: \n<@" + doc.slackId + "> you now have " + doc.tokens + " tokens :tada:" )
           });
         });
       });
