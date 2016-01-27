@@ -48,7 +48,7 @@ var challengeActions = {
             if(err) { return bot.reply(message, errorText); }
             db.get('challenges').updateById(messageSender.slackId, {tokens: messageSender.tokens-1}, function(err, doc) {
               if(err) { return bot.reply(message, errorText); }
-              return bot.reply(message, "<@" + targetId + ">, you have been challenged: " + challengeText) + " :tada: \n<@" + doc.slackId + "> you now have " + doc.tokens + " tokens." )
+              return bot.reply(message, "<@" + targetId + ">, you have been challenged: " + challengeText + " :tada: \n<@" + doc.slackId + "> you now have " + doc.tokens + " tokens." );
             });
           });
         });
@@ -80,7 +80,7 @@ var challengeActions = {
           if(err) { return bot.reply(message, errorText); }
           db.get('users').updateById(messageSender.slackId, {tokens: messageSender.tokens+1}, function(err, doc) {
             if(err) { return bot.reply(message, errorText); }
-            return bot.reply(message, "Challenge Complete! :party-parrot: \n<@" + doc.slackId + "> you now have " + doc.tokens + " tokens :tada:" )
+            return bot.reply(message, "Challenge Complete! :party-parrot: \n<@" + doc.slackId + "> you now have " + doc.tokens + " tokens :tada:" );
           });
         });
       });
