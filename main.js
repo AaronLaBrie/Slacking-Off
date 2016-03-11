@@ -1,24 +1,13 @@
 //Deps
 var express = require('express');
 var bodyParser = require('body-parser')
-var challengeBot = require('./challengeBot');
 var slashCommands = require('./slashCommands');
-
-//DB stuff
-var monk = require('monk')
-var db = monk(process.env.MONGOLAB_URI);
 
 var app = express();
 
 app.set('port', (process.env.PORT || 3000));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(function(req,res,next){
-    req.db = db;
-    next();
-});
 
-app.use(challengeBot);
 app.use('/commands', slashCommands);
 
 //404 if nothing else got hit.
