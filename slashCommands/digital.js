@@ -5,11 +5,11 @@ module.exports = function(req, res) {
     return
   }
 
-  var digitialText = req.body.text ? digitizer(req.body.text) : 'D I G I T A L S P O R T S'
+  var digitalText = req.body.text ? digitizer(req.body.text) : 'D I G I T A L S P O R T S'
 
   //remove spaces to prevent double spacing, then digitize.
   function digitizer(digitalText) {
-    digitalText = digitialText.split(' ').join('')
+    digitalText = digitalText.split(' ').join('')
     return digitalText.split('').join(' ').toUpperCase()
   }
 
