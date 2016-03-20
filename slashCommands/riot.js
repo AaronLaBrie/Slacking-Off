@@ -9,7 +9,7 @@ module.exports = function(req, res) {
 
   var result = {
     response_type: 'in_channel',
-    text: '୧༼ಠ益ಠ༽୨ NOW WE' + text + ' ୧༼ಠ益ಠ༽୨'
+    text: '୧༼ಠ益ಠ༽୨ NOW WE' + text.toUpperCase() + ' ୧༼ಠ益ಠ༽୨'
   }
 
   res.send(result)
