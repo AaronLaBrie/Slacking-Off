@@ -1,18 +1,21 @@
-var digitizer = require('./digitizer')
-var donger = require('./donger')
-var flipper = require('./flipper')
-var giffer = require('./giffer')
-var pitchfork = require('./pitchfork')
 var express = require('express')
+
+var digital = require('./digital')
+var donger = require('./donger')
+var tableflip = require('./tableflip')
+var giff = require('./giff')
+var pitchfork = require('./pitchfork')
+var riot = require('./riot')
 
 module.exports = (function() {
   var app = express.Router()
 
-  app.post('/digitizer', digitizer)
+  app.post('/digital', digital)
   app.post('/donger', donger)
-  app.post('/flipper', flipper)
-  app.post('/giffer', giffer)
+  app.post('/tableflip', tableflip)
+  app.post('/giff', giff)
   app.post('/pitchfork', pitchfork)
+  app.post('/riot', riot)
 
   return app
 })()

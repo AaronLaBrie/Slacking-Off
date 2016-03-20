@@ -1,15 +1,15 @@
 module.exports = function(req, res) {
 
-  if (req.body.token != process.env.DONGER_TOKEN) {
+  if (req.body.token != process.env.RIOT_TOKEN) {
     res.status(401).send('Not from our team, sorry brah.')
     return
   }
 
-  var text = req.body.text ? req.body.text : 'raise your dongers'
+  var text = (req.body.text === 'picnic') ? 'picnic' : 'riot'
 
   var result = {
     response_type: 'in_channel',
-    text: 'ヽ༼ຈل͜ຈ༽ﾉ ' + text + ' ヽ༼ຈل͜ຈ༽ﾉ'
+    text: '୧༼ಠ益ಠ༽୨ NOW WE' + text + ' ୧༼ಠ益ಠ༽୨'
   }
 
   res.send(result)
