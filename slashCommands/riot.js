@@ -5,11 +5,11 @@ module.exports = function(req, res) {
     return
   }
 
-  var text = (req.body.text === 'picnic') ? 'picnic' : 'riot'
+  var responseText = (req.body.text === 'picnic') ? ':picnic: NOW WE PICNIC :picnic:' : '୧༼ಠ益ಠ༽୨ NOW WE RIOT ୧༼ಠ益ಠ༽୨'
 
   var result = {
     response_type: 'in_channel',
-    text: '୧༼ಠ益ಠ༽୨ NOW WE ' + text.toUpperCase() + ' ୧༼ಠ益ಠ༽୨'
+    text: responseText
   }
 
   res.send(result)
