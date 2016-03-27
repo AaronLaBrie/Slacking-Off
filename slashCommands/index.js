@@ -7,7 +7,7 @@ var giff = require('./giff')
 var pitchfork = require('./pitchfork')
 var riot = require('./riot')
 
-module.exports = (function() {
+module.exports = (function () {
   var app = express.Router()
 
   app.post('/digital', digital)

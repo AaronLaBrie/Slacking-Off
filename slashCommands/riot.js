@@ -1,5 +1,4 @@
-module.exports = function(req, res) {
-
+module.exports = function (req, res) {
   if (req.body.token != process.env.RIOT_TOKEN) {
     res.status(401).send('Not from our team, sorry brah.')
     return
