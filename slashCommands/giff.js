@@ -1,7 +1,6 @@
 module.exports = function (req, res) {
   if (req.body.token != process.env.GIFF_TOKEN) {
-    res.status(401).send('Not from our team, sorry brah.')
-    return
+    return res.status(401).send('Not from our team, sorry brah.')
   }
 
   var text = req.body.text ? req.body.text : 'diretide'
