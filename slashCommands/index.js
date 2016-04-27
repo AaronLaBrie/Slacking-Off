@@ -6,6 +6,7 @@ var tableflip = require('./tableflip')
 var giff = require('./giff')
 var pitchfork = require('./pitchfork')
 var riot = require('./riot')
+var hermes = require('./hermes')
 
 module.exports = (function () {
   var app = express.Router()
@@ -16,6 +17,7 @@ module.exports = (function () {
   app.post('/giff', giff)
   app.post('/pitchfork', pitchfork)
   app.post('/riot', riot)
+  app.post('/hermes', hermes)
 
   return app
 })()
