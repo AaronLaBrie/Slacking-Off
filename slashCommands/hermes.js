@@ -1,8 +1,4 @@
 module.exports = function (req, res) {
-  if (req.body.token != process.env.HERMES_TOKEN) {
-    return res.status(401).send('Not from our team, sorry brah.')
-  }
-
   var quotes = [
     'Sweet lion of Zion!',
     'Sweet manatee of Galilee!',

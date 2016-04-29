@@ -1,8 +1,4 @@
 module.exports = function (req, res) {
-  if (req.body.token != process.env.TABLEFLIP_TOKEN) {
-    return res.status(401).send('Not from our team, sorry brah.')
-  }
-
   var flips = [
     '(╯°□°）╯︵ ┻━┻',
     '(ﾉಥ益ಥ）ﾉ﻿ ┻━┻',

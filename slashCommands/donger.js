@@ -1,8 +1,4 @@
 module.exports = function (req, res) {
-  if (req.body.token != process.env.DONGER_TOKEN) {
-    return res.status(401).send('Not from our team, sorry brah.')
-  }
-
   var text = req.body.text ? req.body.text : 'raise your dongers'
 
   var result = {
