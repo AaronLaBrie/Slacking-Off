@@ -10,8 +10,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // Auth step, check the team identity
 app.use(function (req, res, next) {
-  console.log(req.body)
-  next()
+  var authorizedTeams = process.env.TEAM_IDS.split(',')
+
+  if (authorizedTeams.indexOf(req.body.team_id) < 0) {
+    res.status(401).send('Not from an authorized team, sorry brah.')
+  } else {
+    next()
+  }
 })
 
 // Base route for the slash commands
