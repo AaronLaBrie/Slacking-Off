@@ -1,11 +1,9 @@
-module.exports = function (req, res) {
-  var text = req.body.text || 'riot'
-  
-  text = text.toUpperCase()
+module.exports = (req, res) => {
+  const riotText = req.body.text ? req.body.text.toUpperCase() : 'RIOT'
 
-  var responseText = (text === 'PICNIC') ? ':picnic: NOW WE PICNIC :picnic:' : '୧༼ಠ益ಠ༽୨ NOW WE ' + text + ' ୧༼ಠ益ಠ༽୨'
+  const responseText = (riotText === 'PICNIC') ? ':picnic: NOW WE PICNIC :picnic:' : '୧༼ಠ益ಠ༽୨ NOW WE ' + riotText + ' ୧༼ಠ益ಠ༽୨'
 
-  var result = {
+  const result = {
     response_type: 'in_channel',
     text: responseText
   }

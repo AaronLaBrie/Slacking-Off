@@ -1,10 +1,10 @@
-module.exports = function (req, res) {
-  var text = 'ANGRY AT OP? WANT TO JOIN THE MOB? _WE HAVE GOT YOU COVERED!_ \n'
-  text += 'Traditional: ---E \n'
-  text += 'Left Handed: Ǝ--- \n'
-  text += 'Fancy: ---{ \n'
+module.exports = (req, res) => {
+  const text = 'ANGRY AT OP? WANT TO JOIN THE MOB? _WE HAVE GOT YOU COVERED!_ \n' +
+    'Traditional: ---E \n' +
+    'Left Handed: Ǝ--- \n' +
+    'Fancy: ---{ \n'
 
-  var result = {
+  const result = {
     response_type: 'in_channel',
     text: text
   }

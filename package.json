@@ -1,15 +1,17 @@
 {
+  "private": true,
   "name": "slacking-off",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Slack support server. Slash commands!",
   "main": "main.js",
   "scripts": {
     "start": "node main.js"
   },
-  "private": true,
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "botkit": "0.0.4",
-    "express": "^4.13.3"
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  },
+  "engines": {
+    "node": "6.0.0"
   }
 }

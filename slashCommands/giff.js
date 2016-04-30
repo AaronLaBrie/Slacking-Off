@@ -1,7 +1,7 @@
-module.exports = function (req, res) {
-  var text = req.body.text ? req.body.text : 'diretide'
+module.exports = (req, res) => {
+  const text = req.body.text ? req.body.text : 'diretide'
 
-  var result = {
+  const result = {
     response_type: 'in_channel',
     text: '༼ つ ◕_◕ ༽つ giff ' + text
   }

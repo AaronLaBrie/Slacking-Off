@@ -1,5 +1,5 @@
-module.exports = function (req, res) {
-  var quotes = [
+module.exports = (req, res) => {
+  const quotes = [
     'Sweet lion of Zion!',
     'Sweet manatee of Galilee!',
     'Sweet llamas of the Bahamas!',
@@ -28,9 +28,9 @@ module.exports = function (req, res) {
     'Sweet Sally in the alley!'
   ]
 
-  var index = Math.floor(Math.random() * quotes.length)
+  const index = Math.floor(Math.random() * quotes.length)
 
-  var result = {
+  const result = {
     response_type: 'in_channel',
     text: quotes[index]
   }

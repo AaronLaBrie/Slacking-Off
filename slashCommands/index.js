@@ -1,15 +1,15 @@
-var express = require('express')
+const express = require('express')
 
-var digital = require('./digital')
-var donger = require('./donger')
-var tableflip = require('./tableflip')
-var giff = require('./giff')
-var pitchfork = require('./pitchfork')
-var riot = require('./riot')
-var hermes = require('./hermes')
+const digital = require('./digital')
+const donger = require('./donger')
+const tableflip = require('./tableflip')
+const giff = require('./giff')
+const pitchfork = require('./pitchfork')
+const riot = require('./riot')
+const hermes = require('./hermes')
 
-module.exports = (function () {
-  var app = express.Router()
+module.exports = (() => {
+  const app = express.Router()
 
   app.post('/digital', digital)
   app.post('/donger', donger)
@@ -20,4 +20,4 @@ module.exports = (function () {
   app.post('/hermes', hermes)
 
   return app
-})()
+})

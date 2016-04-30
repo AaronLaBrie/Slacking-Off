@@ -1,5 +1,5 @@
-module.exports = function (req, res) {
-  var flips = [
+module.exports = (req, res) => {
+  const flips = [
     '(╯°□°）╯︵ ┻━┻',
     '(ﾉಥ益ಥ）ﾉ﻿ ┻━┻',
     '┻━┻ ︵ヽ(`Д´)ﾉ︵﻿ ┻━┻',
@@ -9,11 +9,11 @@ module.exports = function (req, res) {
     '(┛◉Д◉)┛彡┻━┻'
   ]
 
-  var index = Math.floor(Math.random() * flips.length)
+  const index = Math.floor(Math.random() * flips.length)
 
-  var responseText = (req.body.text == 'fix') ? '┬─┬ノ( º _ ºノ)' : flips[index]
+  const responseText = (req.body.text == 'fix') ? '┬─┬ノ( º _ ºノ)' : flips[index]
 
-  var result = {
+  const result = {
     response_type: 'in_channel',
     text: responseText
   }

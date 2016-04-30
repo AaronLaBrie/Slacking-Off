@@ -1,15 +1,14 @@
-module.exports = function (req, res) {
-  var digitalText = req.body.text ? digitizer(req.body.text) : 'D I G I T A L S P O R T S'
+module.exports = (req, res) => {
+  const digitalText = 'D I G I T A L S P O R T S'
 
-  // remove spaces to prevent double spacing, then digitize.
-  function digitizer (digitalText) {
+  const digitizer = (digitalText) => {
     digitalText = digitalText.split(' ').join('')
     return digitalText.split('').join(' ').toUpperCase()
   }
 
-  var result = {
+  const result = {
     response_type: 'in_channel',
-    text: digitalText
+    text: req.body.text ? digitizer(req.body.text) : digitalText
   }
 
   res.send(result)
