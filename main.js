@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 })
 
 // Base route for the slash commands
-app.use('/commands', slashCommands)
+app.use('/commands', slashCommands())
 
 // 404 if nothing else got hit.
 app.use((req, res) => res.status(404).send('404: Not Found'))
