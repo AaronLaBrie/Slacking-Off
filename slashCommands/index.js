@@ -8,7 +8,7 @@ const pitchfork = require('./pitchfork')
 const riot = require('./riot')
 const hermes = require('./hermes')
 
-module.exports = (() => {
+module.exports = () => {
   const app = express.Router()
 
   app.post('/digital', digital)
@@ -20,4 +20,4 @@ module.exports = (() => {
   app.post('/hermes', hermes)
 
   return app
-})
+}
