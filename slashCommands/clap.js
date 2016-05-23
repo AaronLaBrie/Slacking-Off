@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
 
   const clapper = (clapText) => {
-    return  clapText.trim().toUpperCase().split(' ').join(' :clap: ')
+    return clapText.trim().toUpperCase().split(' ').join(' :clap: ') + ' :clap:'
   }
 
   const result = {
