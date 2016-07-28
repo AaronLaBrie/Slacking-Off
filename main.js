@@ -1,6 +1,7 @@
 // Deps
 const app = require('express')()
 const bodyParser = require('body-parser')
+const newrelic = require('newrelic')
 const slashCommands = require('./slashCommands')
 
 app.set('port', (process.env.PORT || 3000))
