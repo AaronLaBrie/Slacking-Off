@@ -1,5 +1,6 @@
 const express = require('express')
 
+const alert = require('./alert')
 const clap = require('./clap')
 const digital = require('./digital')
 const donger = require('./donger')
@@ -12,6 +13,7 @@ const hermes = require('./hermes')
 module.exports = () => {
   const app = express.Router()
 
+  app.post('/alert', alert)
   app.post('/clap', clap)
   app.post('/digital', digital)
   app.post('/donger', donger)

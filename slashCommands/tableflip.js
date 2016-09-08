@@ -6,7 +6,8 @@ module.exports = (req, res) => {
     '(ノಠ益ಠ)ノ彡┻━┻',
     '(┛ಸ_ಸ)┛彡┻━┻',
     '┻━┻ ︵ヽ(`Д´)ﾉ︵﻿ ┻━┻',
-    '(┛◉Д◉)┛彡┻━┻'
+    '(┛◉Д◉)┛彡┻━┻',
+    '┬─┬ ︵ /(.□. \\）'
   ]
 
   const index = Math.floor(Math.random() * flips.length)
