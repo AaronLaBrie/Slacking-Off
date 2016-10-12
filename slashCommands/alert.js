@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-  const text = req.body.text ? req.body.text.trim() : 'alert'
+  let text = req.body.text ? req.body.text.trim() : 'alert'
 
   if (text.charAt(0) !== ':'){
     text = `*${text.toUpperCase()}* `
