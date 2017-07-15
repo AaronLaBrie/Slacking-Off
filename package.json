@@ -14,5 +14,7 @@
   },
   "engines": {
     "node": "8.1.4"
-  }
+  },
+  "repository": "git@github.com:aaronlabrie/slacking-off",
+  "author": "Aaron LaBrie <aaron.labrie@returnpath.com>"
 }
