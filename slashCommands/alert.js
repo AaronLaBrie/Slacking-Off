@@ -7,7 +7,7 @@ module.exports = (req, res) => {
 
   const result = {
     response_type: 'in_channel',
-    text: `:siren:  ${text}  :siren:`
+    text: `:siren:  ${text} :siren:`
   }
 
   res.send(result)
