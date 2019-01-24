@@ -2,7 +2,7 @@
 const newrelic = require('newrelic')
 const app = require('express')()
 const bodyParser = require('body-parser')
-const slashCommands = require('./slashCommands')
+const slashCommands = require('./slash-commands')
 
 app.set('port', (process.env.PORT || 3000))
 
