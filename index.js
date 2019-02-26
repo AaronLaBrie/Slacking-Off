@@ -30,9 +30,9 @@ app.get('/oauth', (req, res) => {
           '&client_secret='+process.env.CLIENT_SECRET+
           '&redirect_uri='+process.env.REDIRECT_URI
   }
-  request(options).then((request, response) => {
-    console.log(request.body)
-    var JSONresponse = JSON.parse(request.body)
+  request(options).then((_, response) => {
+    console.log(response.body)
+    var JSONresponse = JSON.parse(response.body)
     if (!JSONresponse.ok) {
       console.log(JSONresponse)
       res
