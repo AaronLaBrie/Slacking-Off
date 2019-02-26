@@ -1,11 +1,12 @@
 const request = require('request-promise')
 
-// Best api ever: https://icanhazdadjoke.com/api
+// A very good api: https://icanhazdadjoke.com/api
 const dadConfig = {
   uri: 'https://icanhazdadjoke.com/',
   json: true
 }
 
+// gets a random dad joke
 module.exports = (req, res) => {
   let result = {
     response_type: 'in_channel',

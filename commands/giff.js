@@ -1,3 +1,4 @@
+// giff diretide
 module.exports = (req, res) => {
   const text = req.body.text ? req.body.text : 'diretide'
 

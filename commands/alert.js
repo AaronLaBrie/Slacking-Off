@@ -1,3 +1,4 @@
+// sounds the alarm
 module.exports = (req, res) => {
   let text = req.body.text ? req.body.text.trim() : 'alert'
 
@@ -7,7 +8,7 @@ module.exports = (req, res) => {
 
   const result = {
     response_type: 'in_channel',
-    text: `:siren:  ${text} :siren:`
+    text: `:alert:  ${text} :alert:`
   }
 
   res.send(result)

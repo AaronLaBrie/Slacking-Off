@@ -1,3 +1,4 @@
+// Hermes Conrad Quotes
 module.exports = (req, res) => {
   const quotes = [
     'Sweet lion of Zion!',

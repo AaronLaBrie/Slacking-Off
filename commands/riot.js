@@ -1,3 +1,4 @@
+// burn this mother down
 module.exports = (req, res) => {
   const riotText = req.body.text ? req.body.text.toUpperCase() : 'RIOT'
 
