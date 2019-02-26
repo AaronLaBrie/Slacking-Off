@@ -1,11 +1,11 @@
 {
   "private": true,
   "name": "slacking-off",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Slack support server. Slash commands!",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -16,6 +16,11 @@
   },
   "engines": {
     "node": "11.6.0"
+  },
+  "prettier": {
+    "printWidth": 150,
+    "semi": false,
+    "singleQuote": true
   },
   "repository": "git@github.com:aaronlabrie/slacking-off",
   "author": "Aaron LaBrie <aaron@aaronlabrie.com>"

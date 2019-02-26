@@ -12,7 +12,7 @@ module.exports = (req, res) => {
 
   const index = Math.floor(Math.random() * flips.length)
 
-  const responseText = (req.body.text == 'fix') ? '┬─┬ノ( º _ ºノ)' : flips[index]
+  const responseText = req.body.text == 'fix' ? '┬─┬ノ( º _ ºノ)' : flips[index]
 
   const result = {
     response_type: 'in_channel',

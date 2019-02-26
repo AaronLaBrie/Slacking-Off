@@ -4,7 +4,7 @@ const app = require('express')()
 const bodyParser = require('body-parser')
 const slashCommands = require('./slash-commands')
 
-app.set('port', (process.env.PORT || 3000))
+app.set('port', process.env.PORT || 3000)
 
 // Slack posts using urlencoded data
 app.use(bodyParser.urlencoded({ extended: false }))

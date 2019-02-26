@@ -1,9 +1,16 @@
 module.exports = (req, res) => {
-  const digitalText = '\`D I G I T A L S P O R T S\`'
+  const digitalText = '`D I G I T A L S P O R T S`'
 
-  const digitizer = (digitalText) => {
+  const digitizer = digitalText => {
     digitalText = digitalText.split(' ').join('')
-    return  '\`' + digitalText.split('').join(' ').toUpperCase() + '\`'
+    return (
+      '`' +
+      digitalText
+        .split('')
+        .join(' ')
+        .toUpperCase() +
+      '`'
+    )
   }
 
   const result = {
