@@ -2,6 +2,7 @@
 const newrelic = require('newrelic')
 const express = require('express')
 const bodyParser = require('body-parser')
+const request = require('request-promise')
 
 const slashCommands = require('./slash-commands')
 
@@ -18,9 +19,31 @@ app.get('/', (req, res) => {
   res.send('<a href="https://github.com/AaronLaBrie/slashy">home</a>')
 })
 
-// Pretend to use oauth
+// Oauth stolen from https://api.slack.com/tutorials/app-creation-and-oauth
 app.get('/oauth', (req, res) => {
-  res.send('Success!')
+  const options = {
+    method: 'GET',
+    // prettier-ignore
+    uri: 'https://slack.com/api/oauth.access?code='
+          +req.query.code+
+          '&client_id='+process.env.CLIENT_ID+
+          '&client_secret='+process.env.CLIENT_SECRET+
+          '&redirect_uri='+process.env.REDIRECT_URI
+  }
+  request(options).then(response => {
+    console.log(response)
+    var JSONresponse = JSON.parse(response)
+    if (!JSONresponse.ok) {
+      console.log(JSONresponse)
+      res
+        .send('Error encountered: \n' + JSON.stringify(JSONresponse))
+        .status(200)
+        .end()
+    } else {
+      console.log(JSONresponse)
+      res.send('Success!')
+    }
+  })
 })
 
 // 404 if nothing else got hit.
