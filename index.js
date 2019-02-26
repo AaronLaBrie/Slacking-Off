@@ -2,6 +2,7 @@
 const newrelic = require('newrelic')
 const express = require('express')
 const bodyParser = require('body-parser')
+const request = require('request-promise')
 
 const slashCommands = require('./slash-commands')
 
