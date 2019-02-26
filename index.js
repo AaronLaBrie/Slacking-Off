@@ -14,6 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Base route for the slash commands
 app.use('/commands', slashCommands())
 
+app.get('/', (req, res) => {
+  res.send('<a href="https://github.com/AaronLaBrie/slashy">home</a>')
+})
+
 // Pretend to use oauth
 app.get('/oauth', (req, res) => {
   res.send('Success!')
