@@ -1,5 +1,4 @@
 // Deps
-const newrelic = require('newrelic')
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request-promise')
@@ -34,5 +33,8 @@ app.use('/commands', commands())
 
 // 404 if nothing else got hit.
 app.use((req, res) => res.status(404).send('404: Not Found'))
+
+// ping every 5 minutes to stay awake
+setInterval(() => request({ method: 'GET', uri: 'https://slashy.herokuapp.com/' }), 300000)
 
 const server = app.listen(app.get('port'), () => console.log('Server up! 🎉'))
