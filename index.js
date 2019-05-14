@@ -11,9 +11,7 @@ app.set('port', process.env.PORT || 3000)
 // Slack posts using urlencoded data
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.get('/', (req, res) => {
-  res.send('<a href="https://github.com/AaronLaBrie/slashy">home</a>')
-})
+app.get('/', (req, res) => res.send('<a href="https://github.com/AaronLaBrie/slashy">home</a>'))
 
 // Oauth stolen from https://api.slack.com/tutorials/app-creation-and-oauth
 app.get('/oauth', (req, res) => {
@@ -37,4 +35,5 @@ app.use((req, res) => res.status(404).send('404: Not Found'))
 // ping every 5 minutes to stay awake
 setInterval(() => request({ method: 'GET', uri: 'https://slashy.herokuapp.com/' }), 300000)
 
-const server = app.listen(app.get('port'), () => console.log('Server up! 🎉'))
+// les go!
+app.listen(app.get('port'), () => console.log('Server up! 🎉'))
