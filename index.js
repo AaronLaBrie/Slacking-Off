@@ -33,7 +33,7 @@ app.use('/commands', commands())
 app.use((req, res) => res.status(404).send('404: Not Found'))
 
 // ping every 5 minutes to stay awake
-setInterval(() => request({ method: 'GET', uri: 'https://slashy.herokuapp.com/' }), 300000)
+setInterval(() => request({ method: 'GET', uri: process.env.HEALTH_CHECK }), 300000)
 
 // les go!
 app.listen(app.get('port'), () => console.log('Server up! 🎉'))
