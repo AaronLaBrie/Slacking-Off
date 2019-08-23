@@ -1,5 +1,7 @@
+import { RequestHandler } from 'express'
+
 // giff diretide
-module.exports = (req, res) => {
+export const giff: RequestHandler = (req, res) => {
   const text = req.body.text ? req.body.text : 'diretide'
 
   const result = {

@@ -1,5 +1,7 @@
+import { RequestHandler } from 'express'
+
 // sounds the alarm
-module.exports = (req, res) => {
+export const alert: RequestHandler = (req, res) => {
   let text = req.body.text ? req.body.text.trim() : 'alert'
 
   if (text.charAt(0) !== ':') {

@@ -1,3 +1,5 @@
+import { RequestHandler } from 'express'
+
 const fix = '┬─┬ノ( º _ ºノ)'
 
 const flips = [
@@ -12,7 +14,7 @@ const flips = [
 ]
 
 // table flipper (and fixer)
-module.exports = (req, res) => {
+export const tableFlip: RequestHandler = (req, res) => {
   const index = Math.floor(Math.random() * flips.length)
 
   const responseText = req.body.text == 'fix' ? fix : flips[index]
