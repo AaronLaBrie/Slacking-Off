@@ -12,20 +12,18 @@ import { pitchfork } from './pitchfork'
 import { riot } from './riot'
 import { tableFlip } from './tableflip'
 
-export const commands = () => {
-  const app = express.Router()
+const router = express.Router()
 
-  app.post('/alert', alert)
-  app.post('/clap', clap)
-  app.post('/ceb', ceb)
-  app.post('/dadjoke', dadJoke)
-  app.post('/digital', digital)
-  app.post('/giff', giff)
-  app.post('/hermes', hermes)
-  app.post('/notail', notail)
-  app.post('/pitchfork', pitchfork)
-  app.post('/riot', riot)
-  app.post('/tableflip', tableFlip)
+router.post('/alert', alert)
+router.post('/clap', clap)
+router.post('/ceb', ceb)
+router.post('/dadjoke', dadJoke)
+router.post('/digital', digital)
+router.post('/giff', giff)
+router.post('/hermes', hermes)
+router.post('/notail', notail)
+router.post('/pitchfork', pitchfork)
+router.post('/riot', riot)
+router.post('/tableflip', tableFlip)
 
-  return app
-}
+export const commands = router

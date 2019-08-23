@@ -30,7 +30,7 @@ app.get('/oauth', ({ query }, res) => {
 })
 
 // Base route for the slash commands
-app.use('/commands', () => commands())
+app.use('/commands', commands)
 
 // 404 if nothing else got hit.
 app.use((_, res) => res.status(404).send('404: Not Found'))
