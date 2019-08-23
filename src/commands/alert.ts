@@ -1,8 +1,8 @@
 import { RequestHandler } from 'express'
 
 // sounds the alarm
-export const alert: RequestHandler = ({ body }, { send }) => {
-  let text = body.text ? body.text.trim() : 'alert'
+export const alert: RequestHandler = (req, res) => {
+  let text = req.body.text ? req.body.text.trim() : 'alert'
 
   if (text.charAt(0) !== ':') {
     text = `*${text.toUpperCase().trim()}* `
@@ -13,5 +13,5 @@ export const alert: RequestHandler = ({ body }, { send }) => {
     text: `:alert:  ${text} :alert:`
   }
 
-  send(result)
+  res.send(result)
 }

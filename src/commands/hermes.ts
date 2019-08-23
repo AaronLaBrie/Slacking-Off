@@ -30,7 +30,7 @@ const quotes = [
 ]
 
 // Hermes Conrad Quotes
-export const hermes: RequestHandler = (_, { send }) => {
+export const hermes: RequestHandler = (_, res) => {
   const index = Math.floor(Math.random() * quotes.length)
 
   const result = {
@@ -38,5 +38,5 @@ export const hermes: RequestHandler = (_, { send }) => {
     text: quotes[index]
   }
 
-  send(result)
+  res.send(result)
 }

@@ -8,7 +8,7 @@ const dadConfig = {
 }
 
 // gets a random dad joke
-export const dadJoke: RequestHandler = (_, { send }) => {
+export const dadJoke: RequestHandler = (_, res) => {
   let result = {
     response_type: 'in_channel',
     text: ''
@@ -17,12 +17,12 @@ export const dadJoke: RequestHandler = (_, { send }) => {
   request(dadConfig)
     .then(joke => {
       result.text = joke.joke
-      send(result)
+      res.send(result)
     })
     .catch(err => {
       console.error(err)
       result.response_type = 'ephemeral'
       result.text = "Dad didn't answer :("
-      send(result)
+      res.send(result)
     })
 }

@@ -8,11 +8,11 @@ const shitpost = `
 `
 
 // Pitchform Emporioum
-export const pitchfork: RequestHandler = (_, { send }) => {
+export const pitchfork: RequestHandler = (_, res) => {
   const result = {
     response_type: 'in_channel',
     text: shitpost
   }
 
-  send(result)
+  res.send(result)
 }

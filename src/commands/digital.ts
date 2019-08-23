@@ -11,13 +11,13 @@ const digitizer = (digitalText: string) => {
   return '`' + digitalText + '`'
 }
 
-export const digital: RequestHandler = ({ body }, { send }) => {
+export const digital: RequestHandler = (req, res) => {
   const defaultText = '`D I G I T A L S P O R T S`'
 
   const result = {
     response_type: 'in_channel',
-    text: body.text ? digitizer(body.text) : defaultText
+    text: req.body.text ? digitizer(req.body.text) : defaultText
   }
 
-  send(result)
+  res.send(result)
 }

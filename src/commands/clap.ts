@@ -8,11 +8,11 @@ const clapper = (text: string) =>
     .join(' :clap: ') + ' :clap:'
 
 // claps it out
-export const clap: RequestHandler = ({ body }, { send }) => {
+export const clap: RequestHandler = (req, res) => {
   const result = {
     response_type: 'in_channel',
-    text: clapper(body.text)
+    text: clapper(req.body.text)
   }
 
-  send(result)
+  res.send(result)
 }

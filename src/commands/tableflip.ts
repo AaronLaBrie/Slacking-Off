@@ -14,15 +14,15 @@ const flips = [
 ]
 
 // table flipper (and fixer)
-export const tableFlip: RequestHandler = ({ body }, { send }) => {
+export const tableFlip: RequestHandler = (req, res) => {
   const index = Math.floor(Math.random() * flips.length)
 
-  const responseText = body.text == 'fix' ? fix : flips[index]
+  const responseText = req.body.text == 'fix' ? fix : flips[index]
 
   const result = {
     response_type: 'in_channel',
     text: responseText
   }
 
-  send(result)
+  res.send(result)
 }

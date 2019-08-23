@@ -12,8 +12,8 @@ app.set('port', process.env.PORT || 3000)
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // index
-app.get('/', (_, { send }) => {
-  send('<a href="https://github.com/AaronLaBrie/slashy">home</a>')
+app.get('/', (_, res) => {
+  res.send('<a href="https://github.com/AaronLaBrie/slashy">home</a>')
 })
 
 // Oauth stolen from https://api.slack.com/tutorials/app-creation-and-oauth
@@ -23,14 +23,14 @@ const confirmURL = (code: string) =>
   `&client_secret=${process.env.CLIENT_SECRET}` +
   `&redirect_uri=${process.env.REDIRECT_URI}`
 
-app.get('/oauth', ({ query }, { send }) => {
+app.get('/oauth', ({ query }, res) => {
   request({ method: 'GET', uri: confirmURL(query.code) })
-    .then(() => send('Success!'))
-    .catch(() => send('It broke!'))
+    .then(() => res.send('Success!'))
+    .catch(() => res.send('It broke!'))
 })
 
 // Base route for the slash commands
-app.use('/commands', commands())
+app.use('/commands', () => commands())
 
 // 404 if nothing else got hit.
 app.use((_, res) => res.status(404).send('404: Not Found'))
