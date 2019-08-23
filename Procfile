@@ -1,1 +1,1 @@
-web: node index.js
+web: yarn build && yarn start

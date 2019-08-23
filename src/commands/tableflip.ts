@@ -1,3 +1,5 @@
+import { RequestHandler } from 'express'
+
 const fix = '┬─┬ノ( º _ ºノ)'
 
 const flips = [
@@ -12,15 +14,15 @@ const flips = [
 ]
 
 // table flipper (and fixer)
-module.exports = (req, res) => {
+export const tableFlip: RequestHandler = ({ body }, { send }) => {
   const index = Math.floor(Math.random() * flips.length)
 
-  const responseText = req.body.text == 'fix' ? fix : flips[index]
+  const responseText = body.text == 'fix' ? fix : flips[index]
 
   const result = {
     response_type: 'in_channel',
     text: responseText
   }
 
-  res.send(result)
+  send(result)
 }

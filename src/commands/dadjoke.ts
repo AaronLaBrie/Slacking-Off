@@ -1,4 +1,5 @@
-const request = require('request-promise')
+import request from 'request-promise'
+import { RequestHandler } from 'express'
 
 // A very good api: https://icanhazdadjoke.com/api
 const dadConfig = {
@@ -7,7 +8,7 @@ const dadConfig = {
 }
 
 // gets a random dad joke
-module.exports = (req, res) => {
+export const dadJoke: RequestHandler = (_, { send }) => {
   let result = {
     response_type: 'in_channel',
     text: ''
@@ -16,12 +17,12 @@ module.exports = (req, res) => {
   request(dadConfig)
     .then(joke => {
       result.text = joke.joke
-      res.send(result)
+      send(result)
     })
     .catch(err => {
       console.error(err)
       result.response_type = 'ephemeral'
       result.text = "Dad didn't answer :("
-      res.send(result)
+      send(result)
     })
 }

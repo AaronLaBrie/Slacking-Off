@@ -1,6 +1,8 @@
+import { RequestHandler } from 'express'
+
 // burn this mother down
-module.exports = (req, res) => {
-  const riotText = req.body.text ? req.body.text.toUpperCase() : 'RIOT'
+export const riot: RequestHandler = ({ body }, { send }) => {
+  const riotText = body.text ? body.text.toUpperCase() : 'RIOT'
 
   const responseText = riotText === 'PICNIC' ? ':picnic: NOW WE PICNIC :picnic:' : `୧༼ಠ益ಠ༽୨ NOW WE ${riotText} ୧༼ಠ益ಠ༽୨`
 
@@ -9,5 +11,5 @@ module.exports = (req, res) => {
     text: responseText
   }
 
-  res.send(result)
+  send(result)
 }
