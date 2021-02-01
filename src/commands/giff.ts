@@ -6,7 +6,7 @@ export const giff: RequestHandler = (req, res) => {
 
   const result = {
     response_type: 'in_channel',
-    text: `༼ つ ◕_◕ ༽つ giff ${text}`
+    text: `༼ つ ◕_◕ ༽つ giff ${text}`,
   }
 
   res.send(result)

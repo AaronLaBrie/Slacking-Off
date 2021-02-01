@@ -10,7 +10,7 @@ export const alert: RequestHandler = (req, res) => {
 
   const result = {
     response_type: 'in_channel',
-    text: `:alert:  ${text} :alert:`
+    text: `:alert:  ${text} :alert:`,
   }
 
   res.send(result)

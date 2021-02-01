@@ -11,7 +11,7 @@ const shitpost = `
 export const pitchfork: RequestHandler = (_, res) => {
   const result = {
     response_type: 'in_channel',
-    text: shitpost
+    text: shitpost,
   }
 
   res.send(result)

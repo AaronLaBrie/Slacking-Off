@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@aaronlabrie/prettier@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@aaronlabrie/prettier/-/prettier-1.0.0.tgz#06a7c660ce0760ac9cc006cced05e04f1efce10b"
+  integrity sha512-/qwlne4W9usPC1oToD1bHSIl3qAIgBRBrdN6JC4dumJGV4BAZm7HdAcGIcEhZViRmeuHoqZKCriErCwcZ2Rj7A==
+
 "@types/bluebird@*":
   version "3.5.27"
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.27.tgz#61eb4d75dc6bfbce51cf49ee9bbebe941b2cb5d0"
@@ -551,6 +556,11 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+
+prettier@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
 
 proxy-addr@~2.0.5:
   version "2.0.5"

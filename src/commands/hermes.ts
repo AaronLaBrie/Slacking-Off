@@ -26,7 +26,7 @@ const quotes = [
   'Sweet candelabra of Le Havre, LaBarbara!',
   'Sweet pony of Sierra Leone',
   'Sweet she-cattle of Seattle!',
-  'Sweet Sally in the alley!'
+  'Sweet Sally in the alley!',
 ]
 
 // Hermes Conrad Quotes
@@ -35,7 +35,7 @@ export const hermes: RequestHandler = (_, res) => {
 
   const result = {
     response_type: 'in_channel',
-    text: quotes[index]
+    text: quotes[index],
   }
 
   res.send(result)

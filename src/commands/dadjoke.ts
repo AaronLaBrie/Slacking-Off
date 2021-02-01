@@ -4,14 +4,14 @@ import { RequestHandler } from 'express'
 // A very good api: https://icanhazdadjoke.com/api
 const dadConfig = {
   uri: 'https://icanhazdadjoke.com/',
-  json: true
+  json: true,
 }
 
 // gets a random dad joke
 export const dadJoke: RequestHandler = (_, res) => {
   let result = {
     response_type: 'in_channel',
-    text: ''
+    text: '',
   }
 
   request(dadConfig)

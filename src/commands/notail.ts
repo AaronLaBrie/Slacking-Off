@@ -4,7 +4,7 @@ import { RequestHandler } from 'express'
 export const notail: RequestHandler = (_, res) => {
   const result = {
     response_type: 'in_channel',
-    text: '🌻 SPAM 🌻 THIS 🌻 FLOWER 🌻 TO 🌻 GIVE 🌻 NOTAIL 🌻 POWER 🌻'
+    text: '🌻 SPAM 🌻 THIS 🌻 FLOWER 🌻 TO 🌻 GIVE 🌻 NOTAIL 🌻 POWER 🌻',
   }
 
   res.send(result)

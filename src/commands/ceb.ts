@@ -8,7 +8,7 @@ export const ceb: RequestHandler = (_, res) => {
 
   const result = {
     response_type: 'in_channel',
-    text
+    text,
   }
 
   res.send(result)

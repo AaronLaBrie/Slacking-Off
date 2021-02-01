@@ -10,7 +10,7 @@ const flips = [
   '(┛ಸ_ಸ)┛彡┻━┻',
   '┻━┻ ︵ヽ(`Д´)ﾉ︵﻿ ┻━┻',
   '(┛◉Д◉)┛彡┻━┻',
-  '┬─┬ ︵ /(.□. \\）'
+  '┬─┬ ︵ /(.□. \\）',
 ]
 
 // table flipper (and fixer)
@@ -21,7 +21,7 @@ export const tableFlip: RequestHandler = (req, res) => {
 
   const result = {
     response_type: 'in_channel',
-    text: responseText
+    text: responseText,
   }
 
   res.send(result)

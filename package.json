@@ -9,11 +9,13 @@
     "start": "node build/index.js"
   },
   "dependencies": {
+    "@aaronlabrie/prettier": "^1.0.0",
     "@types/express": "^4.17.1",
     "@types/node": "^12.7.2",
     "@types/request-promise": "^4.1.44",
     "body-parser": "^1.19.0",
     "express": "^4.16.4",
+    "prettier": "^2.2.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "typescript": "^3.5.3"
@@ -21,11 +23,7 @@
   "engines": {
     "node": "12.4.0"
   },
-  "prettier": {
-    "printWidth": 150,
-    "semi": false,
-    "singleQuote": true
-  },
+  "prettier": "@aaronlabrie/prettier",
   "repository": "git@github.com:aaronlabrie/slacking-off",
   "author": "Aaron LaBrie <aaron@aaronlabrie.com>"
 }
